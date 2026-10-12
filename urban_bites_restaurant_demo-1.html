@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17130f">
+  <meta name="description" content="Urban Bites — a demo restaurant website with a delicious menu, opening hours, and easy contact options.">
+  <title>Urban Bites | Good Food, Good Mood</title>
+  <style>
+    :root {
+      --ink: #201913;
+      --muted: #76695d;
+      --cream: #fff9f0;
+      --paper: #fffdf9;
+      --orange: #e65c2f;
+      --orange-dark: #bc3e1b;
+      --green: #254c3b;
+      --line: #eee2d3;
+      --shadow: 0 18px 50px rgba(49, 30, 13, .12);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0; color: var(--ink); background: var(--paper);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
+    .topbar { background: var(--green); color: #fff; text-align: center; padding: 8px 12px; font-size: .82rem; letter-spacing: .02em; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,253,249,.94);
+      backdrop-filter: blur(14px); border-bottom: 1px solid rgba(238,226,211,.8);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.13rem; letter-spacing: -.04em; }
+    .brand-mark { width: 38px; height: 38px; border-radius: 13px; display: grid; place-items: center; background: var(--orange); color: #fff; font-size: 1.15rem; }
+    .nav-links { display: flex; align-items: center; gap: 24px; color: #5c4b3d; font-size: .92rem; font-weight: 700; }
+    .nav-links a:hover { color: var(--orange-dark); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 18px; border: 0; border-radius: 999px; background: var(--orange); color: #fff; font: inherit; font-weight: 800; cursor: pointer; transition: transform .18s, background .18s; }
+    .btn:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .btn-outline { color: var(--ink); background: transparent; border: 1px solid #d9c8b5; }
+    .btn-outline:hover { color: var(--ink); background: #f7ecdf; }
+    .nav-cta { min-height: 42px; padding: 9px 15px; }
+    .hero { padding: 54px 0 58px; overflow: hidden; background: radial-gradient(circle at 80% 25%, #ffe0b8 0, transparent 32%), var(--cream); }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 36px; }
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; color: var(--orange-dark); font-weight: 900; font-size: .8rem; text-transform: uppercase; letter-spacing: .13em; }
+    h1 { margin: 14px 0 18px; max-width: 620px; font-size: clamp(2.55rem, 6.2vw, 4.8rem); line-height: .99; letter-spacing: -.07em; }
+    h1 span { color: var(--orange); }
+    .hero-copy { max-width: 490px; color: var(--muted); font-size: 1.06rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 25px; color: var(--muted); font-size: .88rem; }
+    .stars { color: #d98a20; letter-spacing: .08em; }
+    .hero-photo-wrap { position: relative; }
+    .hero-photo { width: 100%; height: 440px; object-fit: cover; border-radius: 32px; box-shadow: var(--shadow); }
+    .floating-card { position: absolute; left: -18px; bottom: 24px; padding: 15px 18px; border-radius: 18px; background: #fff; box-shadow: var(--shadow); }
+    .floating-card strong { display: block; font-size: 1.08rem; }
+    .floating-card span { color: var(--muted); font-size: .8rem; }
+    .section { padding: 76px 0; }
+    .section-soft { background: #fff7ed; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 28px; }
+    .section-head h2, .about-copy h2, .visit-copy h2 { margin: 8px 0 0; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -.055em; }
+    .section-head p { max-width: 420px; margin: 0; color: var(--muted); }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .menu-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: transform .2s, box-shadow .2s; }
+    .menu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .menu-card img { width: 100%; height: 205px; object-fit: cover; }
+    .menu-info { padding: 18px; }
+    .menu-title-row { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+    .menu-info h3 { margin: 0; font-size: 1.12rem; letter-spacing: -.025em; }
+    .price { flex: 0 0 auto; color: var(--orange-dark); font-weight: 900; }
+    .menu-info p { margin: 8px 0 0; color: var(--muted); font-size: .91rem; }
+    .pill { display: inline-block; margin-top: 12px; padding: 5px 9px; border-radius: 999px; background: #eaf3eb; color: var(--green); font-size: .72rem; font-weight: 800; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
+    .about-photo { width: 100%; height: 410px; object-fit: cover; border-radius: 28px; }
+    .about-copy p { color: var(--muted); }
+    .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 24px; }
+    .feature { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: .9rem; }
+    .feature span { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 12px; background: #ffeadb; }
+    .visit-card { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 34px; border-radius: 28px; background: var(--green); color: #fff; }
+    .visit-copy p { color: #d7e4db; }
+    .visit-details { display: grid; gap: 14px; align-content: center; }
+    .detail { display: flex; gap: 12px; align-items: start; padding-bottom: 13px; border-bottom: 1px solid rgba(255,255,255,.18); }
+    .detail:last-child { padding-bottom: 0; border: 0; }
+    .detail-icon { font-size: 1.2rem; }
+    .detail strong { display: block; }
+    .detail span { color: #d7e4db; font-size: .91rem; }
+    footer { padding: 28px 0 94px; color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    .mobile-bar { display: none; }
+    .toast { position: fixed; bottom: 22px; left: 50%; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 12px 16px; border-radius: 12px; background: #201913; color: #fff; font-size: .9rem; z-index: 30; transition: .2s; width: max-content; max-width: calc(100% - 30px); }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 780px) {
+      .container { width: min(100% - 28px, 540px); }
+      .nav { min-height: 64px; }
+      .nav-links { display: none; }
+      .hero { padding: 38px 0 44px; }
+      .hero-grid, .about-grid, .visit-card { grid-template-columns: 1fr; }
+      .hero-grid { gap: 26px; }
+      h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
+      .hero-photo { height: 310px; border-radius: 24px; }
+      .floating-card { left: 12px; bottom: 12px; }
+      .section { padding: 56px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 14px; }
+      .menu-card { display: grid; grid-template-columns: 120px 1fr; }
+      .menu-card img { height: 100%; min-height: 160px; }
+      .menu-info { padding: 14px; }
+      .menu-info h3 { font-size: 1rem; }
+      .menu-info p { font-size: .83rem; }
+      .about-grid { gap: 24px; }
+      .about-photo { height: 280px; }
+      .visit-card { padding: 25px; gap: 18px; }
+      .feature-list { gap: 12px 8px; }
+      .feature { font-size: .82rem; }
+      .footer-inner { display: block; }
+      .footer-inner > * + * { margin-top: 8px; }
+      .mobile-bar { position: fixed; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; left: 0; right: 0; bottom: 0; z-index: 20; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,253,249,.96); border-top: 1px solid var(--line); backdrop-filter: blur(12px); }
+      .mobile-bar .btn { min-height: 44px; font-size: .9rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">Freshly made • Big flavours • Good times</div>
+  <header>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Urban Bites home"><span class="brand-mark">U</span><span>URBAN BITES</span></a>
+      <div class="nav-links">
+        <a href="#menu">Menu</a><a href="#story">Our story</a><a href="#visit">Find us</a>
+      </div>
+      <a class="btn nav-cta" href="#menu">Explore menu ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">✦ Good food, good mood</div>
+          <h1>Your cravings.<br><span>Our kitchen.</span></h1>
+          <p class="hero-copy">Big, juicy burgers, golden fries and feel-good flavours — made fresh and served with a little extra love.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#menu">See the menu <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#visit">Visit us</a>
+          </div>
+          <div class="hero-note"><span class="stars">★★★★★</span><span>Made fresh. Served happy.</span></div>
+        </div>
+        <div class="hero-photo-wrap">
+          <img class="hero-photo" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=85" alt="A freshly made burger with lettuce and tomato" fetchpriority="high">
+          <div class="floating-card"><strong>Fresh off the grill 🔥</strong><span>Made to order, every time</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Made for your appetite</div><h2>Fan favourites</h2></div>
+          <p>A little something for every kind of craving. These are sample items and prices for this demo.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80" alt="Cheeseburger with fries" loading="lazy">
+            <div class="menu-info"><div class="menu-title-row"><h3>Classic Smash</h3><span class="price">Rs. 650</span></div><p>Grilled beef-style patty, melted cheese, pickles and house sauce.</p><span class="pill">BESTSELLER</span></div>
+          </article>
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80" alt="Crispy golden chicken pieces" loading="lazy">
+            <div class="menu-info"><div class="menu-title-row"><h3>Crispy Crunch</h3><span class="price">Rs. 590</span></div><p>Crunchy chicken, fresh lettuce and a creamy, tangy sauce.</p><span class="pill">CRUNCHY FAVOURITE</span></div>
+          </article>
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80" alt="Golden fries in a serving basket" loading="lazy">
+            <div class="menu-info"><div class="menu-title-row"><h3>Loaded Fries</h3><span class="price">Rs. 420</span></div><p>Golden fries topped with house seasoning and a flavourful drizzle.</p><span class="pill">SHAREABLE</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="story">
+      <div class="container about-grid">
+        <img class="about-photo" src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&w=1000&q=85" alt="Warm, welcoming restaurant dining space" loading="lazy">
+        <div class="about-copy">
+          <div class="eyebrow">A seat at our table</div>
+          <h2>Simple food.<br>Serious flavour.</h2>
+          <p>At Urban Bites, we believe the best meals bring people together. Our demo menu celebrates comforting favourites, fresh ingredients and the joy of sharing a good bite.</p>
+          <div class="feature-list">
+            <div class="feature"><span>🥬</span> Fresh ingredients</div>
+            <div class="feature"><span>🔥</span> Made to order</div>
+            <div class="feature"><span>😊</span> Friendly service</div>
+            <div class="feature"><span>✨</span> Big flavour</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="container visit-card">
+        <div class="visit-copy">
+          <div class="eyebrow" style="color:#ffd0ad">Come hungry</div>
+          <h2>Let's make it<br>a good meal.</h2>
+          <p>Drop in, bring your people, and let us take care of the cravings.</p>
+          <a class="btn" href="#contact" id="contactButton">Contact the restaurant ↗</a>
+        </div>
+        <div class="visit-details" id="contact">
+          <div class="detail"><span class="detail-icon">📍</span><div><strong>Find us</strong><span>Demo address — replace with the real business address</span></div></div>
+          <div class="detail"><span class="detail-icon">🕒</span><div><strong>Opening hours</strong><span>Daily, 12:00 PM – 11:00 PM (sample hours)</span></div></div>
+          <div class="detail"><span class="detail-icon">📞</span><div><strong>Call / WhatsApp</strong><span id="phoneText">Add the restaurant's real number here</span></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#home"><span class="brand-mark">U</span><span>URBAN BITES</span></a>
+      <span>© <span id="year"></span> Urban Bites · Demo website concept</span>
+      <span>Built with care ✦</span>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" aria-label="Quick actions">
+    <a class="btn btn-outline" href="#menu">View menu</a>
+    <a class="btn" href="#visit">Contact us</a>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demo behaviour: show a friendly note instead of pretending contact details work.
+    const contactButton = document.getElementById("contactButton");
+    const toast = document.getElementById("toast");
+    contactButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      toast.textContent = "Demo only — add the real restaurant's phone/WhatsApp number before publishing for a client.";
+      toast.classList.add("show");
+      window.setTimeout(() => toast.classList.remove("show"), 3200);
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  </script>
+</body>
+</html>
