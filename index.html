@@ -1,246 +1,374 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#17130f">
-  <meta name="description" content="Urban Bites — a demo restaurant website with a delicious menu, opening hours, and easy contact options.">
-  <title>Urban Bites | Good Food, Good Mood</title>
-  <style>
-    :root {
-      --ink: #201913;
-      --muted: #76695d;
-      --cream: #fff9f0;
-      --paper: #fffdf9;
-      --orange: #e65c2f;
-      --orange-dark: #bc3e1b;
-      --green: #254c3b;
-      --line: #eee2d3;
-      --shadow: 0 18px 50px rgba(49, 30, 13, .12);
-      --radius: 22px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-    body {
-      margin: 0; color: var(--ink); background: var(--paper);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    .container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
-    .topbar { background: var(--green); color: #fff; text-align: center; padding: 8px 12px; font-size: .82rem; letter-spacing: .02em; }
-    header {
-      position: sticky; top: 0; z-index: 10; background: rgba(255,253,249,.94);
-      backdrop-filter: blur(14px); border-bottom: 1px solid rgba(238,226,211,.8);
-    }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.13rem; letter-spacing: -.04em; }
-    .brand-mark { width: 38px; height: 38px; border-radius: 13px; display: grid; place-items: center; background: var(--orange); color: #fff; font-size: 1.15rem; }
-    .nav-links { display: flex; align-items: center; gap: 24px; color: #5c4b3d; font-size: .92rem; font-weight: 700; }
-    .nav-links a:hover { color: var(--orange-dark); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 18px; border: 0; border-radius: 999px; background: var(--orange); color: #fff; font: inherit; font-weight: 800; cursor: pointer; transition: transform .18s, background .18s; }
-    .btn:hover { background: var(--orange-dark); transform: translateY(-1px); }
-    .btn-outline { color: var(--ink); background: transparent; border: 1px solid #d9c8b5; }
-    .btn-outline:hover { color: var(--ink); background: #f7ecdf; }
-    .nav-cta { min-height: 42px; padding: 9px 15px; }
-    .hero { padding: 54px 0 58px; overflow: hidden; background: radial-gradient(circle at 80% 25%, #ffe0b8 0, transparent 32%), var(--cream); }
-    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 36px; }
-    .eyebrow { display: inline-flex; gap: 8px; align-items: center; color: var(--orange-dark); font-weight: 900; font-size: .8rem; text-transform: uppercase; letter-spacing: .13em; }
-    h1 { margin: 14px 0 18px; max-width: 620px; font-size: clamp(2.55rem, 6.2vw, 4.8rem); line-height: .99; letter-spacing: -.07em; }
-    h1 span { color: var(--orange); }
-    .hero-copy { max-width: 490px; color: var(--muted); font-size: 1.06rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 25px; color: var(--muted); font-size: .88rem; }
-    .stars { color: #d98a20; letter-spacing: .08em; }
-    .hero-photo-wrap { position: relative; }
-    .hero-photo { width: 100%; height: 440px; object-fit: cover; border-radius: 32px; box-shadow: var(--shadow); }
-    .floating-card { position: absolute; left: -18px; bottom: 24px; padding: 15px 18px; border-radius: 18px; background: #fff; box-shadow: var(--shadow); }
-    .floating-card strong { display: block; font-size: 1.08rem; }
-    .floating-card span { color: var(--muted); font-size: .8rem; }
-    .section { padding: 76px 0; }
-    .section-soft { background: #fff7ed; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 28px; }
-    .section-head h2, .about-copy h2, .visit-copy h2 { margin: 8px 0 0; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -.055em; }
-    .section-head p { max-width: 420px; margin: 0; color: var(--muted); }
-    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .menu-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: transform .2s, box-shadow .2s; }
-    .menu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .menu-card img { width: 100%; height: 205px; object-fit: cover; }
-    .menu-info { padding: 18px; }
-    .menu-title-row { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
-    .menu-info h3 { margin: 0; font-size: 1.12rem; letter-spacing: -.025em; }
-    .price { flex: 0 0 auto; color: var(--orange-dark); font-weight: 900; }
-    .menu-info p { margin: 8px 0 0; color: var(--muted); font-size: .91rem; }
-    .pill { display: inline-block; margin-top: 12px; padding: 5px 9px; border-radius: 999px; background: #eaf3eb; color: var(--green); font-size: .72rem; font-weight: 800; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
-    .about-photo { width: 100%; height: 410px; object-fit: cover; border-radius: 28px; }
-    .about-copy p { color: var(--muted); }
-    .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 24px; }
-    .feature { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: .9rem; }
-    .feature span { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 12px; background: #ffeadb; }
-    .visit-card { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 34px; border-radius: 28px; background: var(--green); color: #fff; }
-    .visit-copy p { color: #d7e4db; }
-    .visit-details { display: grid; gap: 14px; align-content: center; }
-    .detail { display: flex; gap: 12px; align-items: start; padding-bottom: 13px; border-bottom: 1px solid rgba(255,255,255,.18); }
-    .detail:last-child { padding-bottom: 0; border: 0; }
-    .detail-icon { font-size: 1.2rem; }
-    .detail strong { display: block; }
-    .detail span { color: #d7e4db; font-size: .91rem; }
-    footer { padding: 28px 0 94px; color: var(--muted); font-size: .85rem; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
-    .mobile-bar { display: none; }
-    .toast { position: fixed; bottom: 22px; left: 50%; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 12px 16px; border-radius: 12px; background: #201913; color: #fff; font-size: .9rem; z-index: 30; transition: .2s; width: max-content; max-width: calc(100% - 30px); }
-    .toast.show { opacity: 1; transform: translate(-50%, 0); }
-    @media (max-width: 780px) {
-      .container { width: min(100% - 28px, 540px); }
-      .nav { min-height: 64px; }
-      .nav-links { display: none; }
-      .hero { padding: 38px 0 44px; }
-      .hero-grid, .about-grid, .visit-card { grid-template-columns: 1fr; }
-      .hero-grid { gap: 26px; }
-      h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
-      .hero-photo { height: 310px; border-radius: 24px; }
-      .floating-card { left: 12px; bottom: 12px; }
-      .section { padding: 56px 0; }
-      .section-head { display: block; }
-      .section-head p { margin-top: 12px; }
-      .menu-grid { grid-template-columns: 1fr; gap: 14px; }
-      .menu-card { display: grid; grid-template-columns: 120px 1fr; }
-      .menu-card img { height: 100%; min-height: 160px; }
-      .menu-info { padding: 14px; }
-      .menu-info h3 { font-size: 1rem; }
-      .menu-info p { font-size: .83rem; }
-      .about-grid { gap: 24px; }
-      .about-photo { height: 280px; }
-      .visit-card { padding: 25px; gap: 18px; }
-      .feature-list { gap: 12px 8px; }
-      .feature { font-size: .82rem; }
-      .footer-inner { display: block; }
-      .footer-inner > * + * { margin-top: 8px; }
-      .mobile-bar { position: fixed; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; left: 0; right: 0; bottom: 0; z-index: 20; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,253,249,.96); border-top: 1px solid var(--line); backdrop-filter: blur(12px); }
-      .mobile-bar .btn { min-height: 44px; font-size: .9rem; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Urban Bites — handcrafted burgers, fresh ingredients and unforgettable flavour. Explore our menu and visit us today.">
+<title>Urban Bites | Good Food. Great Mood.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#11110f;
+  --panel:#191916;
+  --cream:#f6f0e6;
+  --muted:#aaa69b;
+  --orange:#f3a64a;
+  --line:#34332d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+img{display:block;width:100%;object-fit:cover}
+.container{width:min(1160px,90%);margin:auto}
+.eyebrow{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.12}
+h2{font-size:clamp(2.2rem,5vw,3.5rem);margin:12px 0 18px}
+p{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border:1px solid var(--orange);background:var(--orange);color:#19140d;font-weight:700;border-radius:4px;transition:.2s}
+.btn:hover{background:#ffc16f;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--cream);border-color:#686154}
+.btn-outline:hover{background:var(--cream);color:var(--bg)}
+header{position:sticky;top:0;z-index:10;background:rgba(17,17,15,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:800;letter-spacing:-1px}
+.logo span{color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:27px}
+.nav-links a{font-size:.88rem;color:#ded8ce}
+.nav-links a:hover{color:var(--orange)}
+.nav-links .nav-cta{padding:10px 15px;border:1px solid var(--orange);color:var(--orange)}
+.menu-toggle{display:none;background:none;color:white;border:1px solid var(--line);padding:7px 12px;border-radius:4px;font-size:1.25rem}
+.hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;padding:65px 0 75px}
+.hero-copy{padding:20px 0}
+.hero h1{font-size:clamp(3.4rem,7vw,6rem);letter-spacing:-3px;margin:22px 0}
+.hero h1 span{color:var(--orange)}
+.hero-copy>p{max-width:480px;font-size:1.04rem;line-height:1.9}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:38px;font-size:.85rem;color:var(--muted)}
+.stars{color:var(--orange);letter-spacing:3px}
+.hero-image{height:510px;position:relative}
+.hero-image img{height:100%;border-radius:6px}
+.image-label{position:absolute;left:-20px;bottom:25px;background:var(--orange);color:#1c150c;padding:16px 22px;font-weight:700;box-shadow:0 12px 40px #0006}
+.image-label small{display:block;font-weight:500;font-size:.75rem}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);padding:25px 0;text-align:center}
+.stat strong{display:block;font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--orange)}
+.stat span{color:var(--muted);font-size:.82rem}
+section{padding:95px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:38px}
+.section-head p{max-width:410px}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
+.food-card{background:var(--panel);border:1px solid #2a2924;overflow:hidden;transition:.25s}
+.food-card:hover{transform:translateY(-5px);border-color:#6e5536}
+.food-card img{height:225px}
+.food-info{padding:22px}
+.food-top{display:flex;align-items:start;justify-content:space-between;gap:12px}
+.food-top h3{font-size:1.35rem}
+.price{color:var(--orange);font-weight:700;white-space:nowrap}
+.food-info p{font-size:.88rem;margin:12px 0 18px}
+.food-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted)}
+.food-bottom a{color:var(--orange);font-weight:700}
+.tag{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;background:#30271b;color:var(--orange);padding:5px 8px}
+.about{background:#191916}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:65px}
+.about-images{position:relative;padding:0 35px 35px 0}
+.about-images img{height:440px;border-radius:5px}
+.about-badge{position:absolute;right:0;bottom:0;background:var(--orange);color:#20170e;padding:24px;text-align:center;font-weight:700}
+.about-badge strong{display:block;font-family:'Playfair Display',serif;font-size:2rem}
+.about-copy p{margin:15px 0;line-height:1.9}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+.feature{border-left:2px solid var(--orange);padding:4px 0 4px 13px}
+.feature strong{display:block;font-size:.92rem}
+.feature span{font-size:.78rem;color:var(--muted)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review{padding:26px;background:var(--panel);border:1px solid var(--line)}
+.review .stars{font-size:.9rem}
+.review blockquote{margin:18px 0;font-size:.96rem;line-height:1.8}
+.reviewer{display:flex;align-items:center;gap:12px;margin-top:20px}
+.avatar{width:40px;height:40px;border-radius:50%;background:#453521;display:grid;place-items:center;color:var(--orange);font-weight:700}
+.reviewer strong{display:block;font-size:.86rem}
+.reviewer span{font-size:.75rem;color:var(--muted)}
+.visit{background:#191916}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.visit-details{display:grid;gap:24px;margin-top:28px}
+.detail{display:flex;gap:15px}
+.detail-icon{width:44px;height:44px;flex-shrink:0;display:grid;place-items:center;border:1px solid #55432c;color:var(--orange);font-size:1.2rem}
+.detail strong{display:block;margin-bottom:4px}
+.detail p{font-size:.9rem}
+.hours{background:var(--bg);border:1px solid var(--line);padding:30px}
+.hours h3{font-size:1.6rem;margin-bottom:22px}
+.hours-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.hours-row span:last-child{color:var(--orange)}
+.hours-note{font-size:.8rem;margin-top:18px}
+.cta{padding:65px 0;background:var(--orange);color:#21180e}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.cta h2{font-size:clamp(2rem,4vw,3.2rem);margin:10px 0}
+.cta p{color:#594027}
+.cta .btn{background:var(--bg);color:var(--cream);border-color:var(--bg);white-space:nowrap}
+footer{padding:35px 0}
+.footer-top{display:flex;justify-content:space-between;gap:30px;align-items:center;padding-bottom:25px;border-bottom:1px solid var(--line)}
+.footer-links{display:flex;flex-wrap:wrap;gap:20px;font-size:.85rem;color:var(--muted)}
+.footer-bottom{display:flex;justify-content:space-between;gap:15px;padding-top:20px;font-size:.78rem;color:var(--muted)}
+footer p{font-size:.8rem;margin-top:12px}
+@media(max-width:800px){
+ .hero{min-height:auto;grid-template-columns:1fr;padding:55px 0;gap:32px}
+ .hero h1{font-size:clamp(3.2rem,12vw,5.2rem)}
+ .hero-image{height:390px;margin-left:10px}
+ .image-label{left:-10px}
+ .menu-grid{grid-template-columns:repeat(2,1fr)}
+ .about-grid{gap:35px}
+ .about-images img{height:360px}
+ .reviews-grid{grid-template-columns:1fr}
+ .visit-grid{gap:25px}
+ .nav-links{gap:15px}
+}
+@media(max-width:600px){
+ .container{width:90%}
+ nav{min-height:68px}
+ .logo{font-size:1.45rem}
+ .menu-toggle{display:block}
+ .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#191916;padding:22px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
+ .nav-links.open{display:flex}
+ .nav-links a{padding:12px 0;border-bottom:1px solid #302f29}
+ .nav-links .nav-cta{text-align:center;margin-top:12px}
+ .hero{padding:45px 0}
+ .hero h1{letter-spacing:-2px}
+ .hero-image{height:320px;margin:0}
+ .image-label{bottom:15px;padding:12px 16px}
+ .stats{gap:8px;padding:18px 0}
+ .stat strong{font-size:1.4rem}
+ .stat span{font-size:.68rem}
+ section{padding:65px 0}
+ .section-head{display:block}
+ .section-head>p{margin-top:12px}
+ .menu-grid{grid-template-columns:1fr;gap:18px}
+ .food-card img{height:230px}
+ .about-grid,.visit-grid{grid-template-columns:1fr}
+ .about-images{padding-right:20px}
+ .about-images img{height:330px}
+ .features{gap:12px}
+ .cta-inner{align-items:start;flex-direction:column}
+ .footer-top,.footer-bottom{align-items:flex-start;flex-direction:column}
+}
+</style>
 </head>
 <body>
-  <div class="topbar">Freshly made • Big flavours • Good times</div>
-  <header>
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Urban Bites home"><span class="brand-mark">U</span><span>URBAN BITES</span></a>
-      <div class="nav-links">
-        <a href="#menu">Menu</a><a href="#story">Our story</a><a href="#visit">Find us</a>
-      </div>
-      <a class="btn nav-cta" href="#menu">Explore menu ↗</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">✦ Good food, good mood</div>
-          <h1>Your cravings.<br><span>Our kitchen.</span></h1>
-          <p class="hero-copy">Big, juicy burgers, golden fries and feel-good flavours — made fresh and served with a little extra love.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#menu">See the menu <span aria-hidden="true">→</span></a>
-            <a class="btn btn-outline" href="#visit">Visit us</a>
-          </div>
-          <div class="hero-note"><span class="stars">★★★★★</span><span>Made fresh. Served happy.</span></div>
-        </div>
-        <div class="hero-photo-wrap">
-          <img class="hero-photo" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=85" alt="A freshly made burger with lettuce and tomato" fetchpriority="high">
-          <div class="floating-card"><strong>Fresh off the grill 🔥</strong><span>Made to order, every time</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="menu">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="eyebrow">Made for your appetite</div><h2>Fan favourites</h2></div>
-          <p>A little something for every kind of craving. These are sample items and prices for this demo.</p>
-        </div>
-        <div class="menu-grid">
-          <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80" alt="Cheeseburger with fries" loading="lazy">
-            <div class="menu-info"><div class="menu-title-row"><h3>Classic Smash</h3><span class="price">Rs. 650</span></div><p>Grilled beef-style patty, melted cheese, pickles and house sauce.</p><span class="pill">BESTSELLER</span></div>
-          </article>
-          <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=700&q=80" alt="Crispy golden chicken pieces" loading="lazy">
-            <div class="menu-info"><div class="menu-title-row"><h3>Crispy Crunch</h3><span class="price">Rs. 590</span></div><p>Crunchy chicken, fresh lettuce and a creamy, tangy sauce.</p><span class="pill">CRUNCHY FAVOURITE</span></div>
-          </article>
-          <article class="menu-card">
-            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80" alt="Golden fries in a serving basket" loading="lazy">
-            <div class="menu-info"><div class="menu-title-row"><h3>Loaded Fries</h3><span class="price">Rs. 420</span></div><p>Golden fries topped with house seasoning and a flavourful drizzle.</p><span class="pill">SHAREABLE</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="story">
-      <div class="container about-grid">
-        <img class="about-photo" src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&w=1000&q=85" alt="Warm, welcoming restaurant dining space" loading="lazy">
-        <div class="about-copy">
-          <div class="eyebrow">A seat at our table</div>
-          <h2>Simple food.<br>Serious flavour.</h2>
-          <p>At Urban Bites, we believe the best meals bring people together. Our demo menu celebrates comforting favourites, fresh ingredients and the joy of sharing a good bite.</p>
-          <div class="feature-list">
-            <div class="feature"><span>🥬</span> Fresh ingredients</div>
-            <div class="feature"><span>🔥</span> Made to order</div>
-            <div class="feature"><span>😊</span> Friendly service</div>
-            <div class="feature"><span>✨</span> Big flavour</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="visit">
-      <div class="container visit-card">
-        <div class="visit-copy">
-          <div class="eyebrow" style="color:#ffd0ad">Come hungry</div>
-          <h2>Let's make it<br>a good meal.</h2>
-          <p>Drop in, bring your people, and let us take care of the cravings.</p>
-          <a class="btn" href="#contact" id="contactButton">Contact the restaurant ↗</a>
-        </div>
-        <div class="visit-details" id="contact">
-          <div class="detail"><span class="detail-icon">📍</span><div><strong>Find us</strong><span>Demo address — replace with the real business address</span></div></div>
-          <div class="detail"><span class="detail-icon">🕒</span><div><strong>Opening hours</strong><span>Daily, 12:00 PM – 11:00 PM (sample hours)</span></div></div>
-          <div class="detail"><span class="detail-icon">📞</span><div><strong>Call / WhatsApp</strong><span id="phoneText">Add the restaurant's real number here</span></div></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <a class="brand" href="#home"><span class="brand-mark">U</span><span>URBAN BITES</span></a>
-      <span>© <span id="year"></span> Urban Bites · Demo website concept</span>
-      <span>Built with care ✦</span>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home">urban<span>.</span>bites</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#menu">Our Menu</a>
+      <a href="#about">Our Story</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Find Us</a>
+      <a href="#menu" class="nav-cta">Explore Menu ↗</a>
     </div>
-  </footer>
+  </nav>
+</header>
 
-  <div class="mobile-bar" aria-label="Quick actions">
-    <a class="btn btn-outline" href="#menu">View menu</a>
-    <a class="btn" href="#visit">Contact us</a>
+<main>
+<section class="container hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow">Made fresh. Served with love.</div>
+    <h1>Good food.<br>Great <span>mood.</span></h1>
+    <p>Big flavours, fresh ingredients and the kind of food that turns an ordinary day into something special. Welcome to your new favourite spot.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn">Explore Our Menu ↗</a>
+      <a href="#about" class="btn btn-outline">Our Story</a>
+    </div>
+    <div class="hero-note">
+      <span class="stars">★★★★★</span>
+      <span>Made with passion, every single day</span>
+    </div>
   </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=85" alt="Juicy gourmet burger with fresh toppings">
+    <div class="image-label"><small>THE CROWD FAVOURITE</small> The Signature Burger 🍔</div>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<div class="container stats">
+  <div class="stat"><strong>100%</strong><span>Fresh ingredients</span></div>
+  <div class="stat"><strong>Made Daily</strong><span>Freshly prepared food</span></div>
+  <div class="stat"><strong>Big Flavour</strong><span>Zero boring bites</span></div>
+</div>
 
-    // Demo behaviour: show a friendly note instead of pretending contact details work.
-    const contactButton = document.getElementById("contactButton");
-    const toast = document.getElementById("toast");
-    contactButton.addEventListener("click", function (event) {
-      event.preventDefault();
-      toast.textContent = "Demo only — add the real restaurant's phone/WhatsApp number before publishing for a client.";
-      toast.classList.add("show");
-      window.setTimeout(() => toast.classList.remove("show"), 3200);
-      document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-  </script>
+<section class="container" id="menu">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Something for every craving</div>
+      <h2>Our favourites.</h2>
+    </div>
+    <p>Comfort food, done differently. Discover the dishes we'd love you to try first.</p>
+  </div>
+  <div class="menu-grid">
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Signature double burger" loading="lazy">
+      <div class="food-info">
+        <div class="food-top"><h3>Signature Smash</h3><span class="price">Rs. 1,250</span></div>
+        <p>Juicy smashed beef, melted cheese, fresh lettuce and our signature house sauce.</p>
+        <div class="food-bottom"><span class="tag">Bestseller</span><a href="#visit">Ask about ordering ↗</a></div>
+      </div>
+    </article>
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" alt="Crispy chicken burger" loading="lazy">
+      <div class="food-info">
+        <div class="food-top"><h3>Crispy Chicken</h3><span class="price">Rs. 950</span></div>
+        <p>Golden crispy chicken, crunchy slaw and creamy sauce in a toasted bun.</p>
+        <div class="food-bottom"><span class="tag">Fan favourite</span><a href="#visit">Ask about ordering ↗</a></div>
+      </div>
+    </article>
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80" alt="Golden crispy fries" loading="lazy">
+      <div class="food-info">
+        <div class="food-top"><h3>Loaded Fries</h3><span class="price">Rs. 550</span></div>
+        <p>Crispy golden fries topped with a rich sauce and a generous sprinkle of seasoning.</p>
+        <div class="food-bottom"><span class="tag">Perfect side</span><a href="#visit">Ask about ordering ↗</a></div>
+      </div>
+    </article>
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Freshly baked pizza" loading="lazy">
+      <div class="food-info">
+        <div class="food-top"><h3>Classic Pizza</h3><span class="price">Rs. 1,450</span></div>
+        <p>A crispy crust, rich tomato sauce and gooey cheese in every delicious slice.</p>
+        <div class="food-bottom"><span class="tag">Shareable</span><a href="#visit">Ask about ordering ↗</a></div>
+      </div>
+    </article>
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Fresh pizza with toppings" loading="lazy">
+      <div class="food-info">
+        <div class="food-top"><h3>Garden Special</h3><span class="price">Rs. 1,350</span></div>
+        <p>A colourful mix of fresh vegetables, herbs, cheese and our house-made sauce.</p>
+        <div class="food-bottom"><span class="tag">Fresh pick</span><a href="#visit">Ask about ordering ↗</a></div>
+      </div>
+    </article>
+    <article class="food-card">
+      <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=800&q=80" alt="Refreshing cold drink" loading="lazy">
+      <div class="food-info">
+        <div class="food-top"><h3>Chilled Refreshers</h3><span class="price">Rs. 350</span></div>
+        <p>Cool, refreshing drinks to complete your meal and keep the good mood going.</p>
+        <div class="food-bottom"><span class="tag">Cool down</span><a href="#visit">Ask about ordering ↗</a></div>
+      </div>
+    </article>
+  </div>
+  <p style="font-size:.78rem;margin-top:22px">Demo menu: all prices and dishes are illustrative and should be replaced with the restaurant's actual menu.</p>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-images">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=85" alt="Welcoming restaurant dining space" loading="lazy">
+      <div class="about-badge"><strong>Good food</strong>Good people. Good times.</div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">More than just a meal</div>
+      <h2>Food tastes better when it's made with heart.</h2>
+      <p>At Urban Bites, we believe the best moments happen around good food. That's why every dish on our menu is inspired by bold flavours, fresh ingredients and a love for bringing people together.</p>
+      <p>Whether you're grabbing a quick bite or catching up with your favourite people, there's always room at our table.</p>
+      <div class="features">
+        <div class="feature"><strong>✦ Freshly prepared</strong><span>Made to order with care</span></div>
+        <div class="feature"><strong>✦ Bold flavours</strong><span>Every bite counts</span></div>
+        <div class="feature"><strong>✦ Made for sharing</strong><span>Bring your people</span></div>
+        <div class="feature"><strong>✦ Warm hospitality</strong><span>Come as you are</span></div>
+      </div>
+      <a href="#visit" class="btn">Come Say Hello ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="reviews">
+  <div class="section-head">
+    <div><div class="eyebrow">Kind words, good memories</div><h2>The love is real.</h2></div>
+    <p>Great food is even better when shared. Here's where real customer feedback could appear.</p>
+  </div>
+  <div class="reviews-grid">
+    <article class="review">
+      <div class="stars">★★★★★</div>
+      <blockquote>“The perfect place for a relaxed meal. Great flavours, a welcoming vibe and plenty to try.”</blockquote>
+      <div class="reviewer"><div class="avatar">A</div><div><strong>Sample Customer</strong><span>Example review</span></div></div>
+    </article>
+    <article class="review">
+      <div class="stars">★★★★★</div>
+      <blockquote>“The burger and fries make a fantastic combination. Definitely a menu worth exploring.”</blockquote>
+      <div class="reviewer"><div class="avatar">M</div><div><strong>Sample Customer</strong><span>Example review</span></div></div>
+    </article>
+    <article class="review">
+      <div class="stars">★★★★★</div>
+      <blockquote>“A cosy place to catch up with friends over good food. I'd love to come back.”</blockquote>
+      <div class="reviewer"><div class="avatar">S</div><div><strong>Sample Customer</strong><span>Example review</span></div></div>
+    </article>
+  </div>
+  <p style="font-size:.78rem;margin-top:20px">These are illustrative testimonials, not verified customer reviews. Replace them with genuine feedback before using this site for a real business.</p>
+</section>
+
+<section class="visit" id="visit">
+  <div class="container visit-grid">
+    <div>
+      <div class="eyebrow">Your table is waiting</div>
+      <h2>Come hungry.<br>Leave happy.</h2>
+      <p>Planning a visit or want to ask about the menu? Get in touch with us.</p>
+      <div class="visit-details">
+        <div class="detail"><div class="detail-icon">⌖</div><div><strong>Find Us</strong><p>Your restaurant address goes here<br>Islamabad, Pakistan (demo location)</p></div></div>
+        <div class="detail"><div class="detail-icon">◷</div><div><strong>Opening Hours</strong><p>Hours shown here are placeholders. Please confirm before visiting.</p></div></div>
+        <div class="detail"><div class="detail-icon">☎</div><div><strong>Get in Touch</strong><p>Replace with the restaurant's actual phone number.</p></div></div>
+      </div>
+      <a href="#home" class="btn" style="margin-top:28px">Back to Top ↑</a>
+    </div>
+    <div class="hours">
+      <h3>When to find us</h3>
+      <div class="hours-row"><span>Monday – Thursday</span><span>12 PM – 10 PM</span></div>
+      <div class="hours-row"><span>Friday</span><span>2 PM – 11 PM</span></div>
+      <div class="hours-row"><span>Saturday</span><span>12 PM – 11 PM</span></div>
+      <div class="hours-row"><span>Sunday</span><span>12 PM – 10 PM</span></div>
+      <p class="hours-note">Sample opening hours for this demo only. Actual hours, address and contact details must be confirmed by the business owner.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="container cta-inner">
+    <div><div class="eyebrow" style="color:#5a3815">Your next favourite meal</div><h2>Good things are on the menu.</h2><p>Explore the menu and plan your next visit.</p></div>
+    <a href="#menu" class="btn">Discover the Menu ↗</a>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><a class="logo" href="#home">urban<span>.</span>bites</a><p>Good food. Great mood. Always.</p></div>
+      <div class="footer-links"><a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">Our Story</a><a href="#reviews">Reviews</a><a href="#visit">Contact</a></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Urban Bites — Portfolio Demo</span><span>Made with care ✦</span></div>
+  </div>
+</footer>
+
+<script>
+const toggle = document.getElementById('menuToggle');
+const links = document.getElementById('navLinks');
+
+toggle.addEventListener('click', () => {
+  const isOpen = links.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(isOpen));
+  toggle.textContent = isOpen ? '✕' : '☰';
+});
+
+links.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = '☰';
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
+
