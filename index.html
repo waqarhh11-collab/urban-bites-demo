@@ -4,370 +4,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#11110f">
-<meta name="description" content="Urban Bites — handcrafted burgers, fresh ingredients and unforgettable flavour. Explore our menu and visit us today.">
-<title>Urban Bites | Good Food. Great Mood.</title>
+<meta name="theme-color" content="#f6f3ed">
+<title>Cafe Sierra | Islamabad</title>
+<meta name="description" content="Discover Cafe Sierra in F-8/2, Islamabad. Explore our menu, steaks, burgers, pasta and refreshing drinks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#11110f;
-  --panel:#191916;
-  --cream:#f6f0e6;
-  --muted:#aaa69b;
-  --orange:#f3a64a;
-  --line:#34332d;
-}
+:root{--cream:#f6f3ed;--white:#fff;--black:#171715;--gray:#77766f;--line:#dedbd3;--dark:#252521}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.65}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black);line-height:1.65}
 a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
+button{font:inherit}
 img{display:block;width:100%;object-fit:cover}
-.container{width:min(1160px,90%);margin:auto}
-.eyebrow{color:var(--orange);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.12}
-h2{font-size:clamp(2.2rem,5vw,3.5rem);margin:12px 0 18px}
-p{color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border:1px solid var(--orange);background:var(--orange);color:#19140d;font-weight:700;border-radius:4px;transition:.2s}
-.btn:hover{background:#ffc16f;transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--cream);border-color:#686154}
-.btn-outline:hover{background:var(--cream);color:var(--bg)}
-header{position:sticky;top:0;z-index:10;background:rgba(17,17,15,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
-nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:800;letter-spacing:-1px}
-.logo span{color:var(--orange)}
-.nav-links{display:flex;align-items:center;gap:27px}
-.nav-links a{font-size:.88rem;color:#ded8ce}
-.nav-links a:hover{color:var(--orange)}
-.nav-links .nav-cta{padding:10px 15px;border:1px solid var(--orange);color:var(--orange)}
-.menu-toggle{display:none;background:none;color:white;border:1px solid var(--line);padding:7px 12px;border-radius:4px;font-size:1.25rem}
-.hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;padding:65px 0 75px}
-.hero-copy{padding:20px 0}
-.hero h1{font-size:clamp(3.4rem,7vw,6rem);letter-spacing:-3px;margin:22px 0}
-.hero h1 span{color:var(--orange)}
-.hero-copy>p{max-width:480px;font-size:1.04rem;line-height:1.9}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.hero-note{display:flex;align-items:center;gap:12px;margin-top:38px;font-size:.85rem;color:var(--muted)}
-.stars{color:var(--orange);letter-spacing:3px}
-.hero-image{height:510px;position:relative}
-.hero-image img{height:100%;border-radius:6px}
-.image-label{position:absolute;left:-20px;bottom:25px;background:var(--orange);color:#1c150c;padding:16px 22px;font-weight:700;box-shadow:0 12px 40px #0006}
-.image-label small{display:block;font-weight:500;font-size:.75rem}
-.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);padding:25px 0;text-align:center}
-.stat strong{display:block;font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--orange)}
-.stat span{color:var(--muted);font-size:.82rem}
+.wrap{width:min(1160px,90%);margin:auto}
+.announcement{text-align:center;background:var(--black);color:white;padding:9px 12px;font-size:11px;letter-spacing:2px}
+header{position:sticky;top:0;z-index:20;background:#f6f3edf2;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:'Playfair Display',serif;font-size:27px;letter-spacing:1px;font-weight:600}
+.logo span{display:block;font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;text-align:center;margin-top:-5px}
+.navlinks{display:flex;gap:27px;align-items:center;font-size:12px}
+.navlinks a:hover{opacity:.6}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--black);color:white;padding:13px 21px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--black);transition:.2s;cursor:pointer}
+.btn:hover{background:transparent;color:var(--black)}
+.btn.light{background:var(--cream);color:var(--black);border-color:var(--cream)}
+.btn.outline{background:transparent;color:var(--black)}
+.btn.outline:hover{background:var(--black);color:white}
+.mobile-toggle{display:none;border:0;background:none;font-size:26px;cursor:pointer}
+.hero{padding:48px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:55px}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gray);display:flex;align-items:center;gap:10px}
+.eyebrow:before{content:"";height:1px;width:28px;background:currentColor}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;line-height:1.12}
+h1{font-size:clamp(45px,6.5vw,78px);letter-spacing:-2px;margin:24px 0}
+h1 em{font-weight:400;color:#77766f}
+.hero-copy>p{max-width:430px;color:#68675f;font-size:14px;line-height:1.9}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:38px;font-size:11px;color:var(--gray)}
+.hero-note strong{color:var(--black);font-size:12px}
+.hero-image{height:560px;position:relative}
+.hero-image img{height:100%;object-fit:cover}
+.image-tag{position:absolute;bottom:20px;left:20px;background:var(--cream);padding:14px 19px;font-size:11px;letter-spacing:1px}
+.image-tag strong{display:block;font-family:'Playfair Display',serif;font-size:20px;font-weight:500}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0}
+.strip-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.strip-item{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#626159}
+.strip-item b{display:block;font-family:'Playfair Display',serif;font-size:20px;letter-spacing:0;text-transform:none;color:var(--black);font-weight:500}
 section{padding:95px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:38px}
-.section-head p{max-width:410px}
-.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
-.food-card{background:var(--panel);border:1px solid #2a2924;overflow:hidden;transition:.25s}
-.food-card:hover{transform:translateY(-5px);border-color:#6e5536}
-.food-card img{height:225px}
-.food-info{padding:22px}
-.food-top{display:flex;align-items:start;justify-content:space-between;gap:12px}
-.food-top h3{font-size:1.35rem}
-.price{color:var(--orange);font-weight:700;white-space:nowrap}
-.food-info p{font-size:.88rem;margin:12px 0 18px}
-.food-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted)}
-.food-bottom a{color:var(--orange);font-weight:700}
-.tag{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;background:#30271b;color:var(--orange);padding:5px 8px}
-.about{background:#191916}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:65px}
-.about-images{position:relative;padding:0 35px 35px 0}
-.about-images img{height:440px;border-radius:5px}
-.about-badge{position:absolute;right:0;bottom:0;background:var(--orange);color:#20170e;padding:24px;text-align:center;font-weight:700}
-.about-badge strong{display:block;font-family:'Playfair Display',serif;font-size:2rem}
-.about-copy p{margin:15px 0;line-height:1.9}
-.features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-.feature{border-left:2px solid var(--orange);padding:4px 0 4px 13px}
-.feature strong{display:block;font-size:.92rem}
-.feature span{font-size:.78rem;color:var(--muted)}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.review{padding:26px;background:var(--panel);border:1px solid var(--line)}
-.review .stars{font-size:.9rem}
-.review blockquote{margin:18px 0;font-size:.96rem;line-height:1.8}
-.reviewer{display:flex;align-items:center;gap:12px;margin-top:20px}
-.avatar{width:40px;height:40px;border-radius:50%;background:#453521;display:grid;place-items:center;color:var(--orange);font-weight:700}
-.reviewer strong{display:block;font-size:.86rem}
-.reviewer span{font-size:.75rem;color:var(--muted)}
-.visit{background:#191916}
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
-.visit-details{display:grid;gap:24px;margin-top:28px}
-.detail{display:flex;gap:15px}
-.detail-icon{width:44px;height:44px;flex-shrink:0;display:grid;place-items:center;border:1px solid #55432c;color:var(--orange);font-size:1.2rem}
-.detail strong{display:block;margin-bottom:4px}
-.detail p{font-size:.9rem}
-.hours{background:var(--bg);border:1px solid var(--line);padding:30px}
-.hours h3{font-size:1.6rem;margin-bottom:22px}
-.hours-row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.88rem}
-.hours-row span:last-child{color:var(--orange)}
-.hours-note{font-size:.8rem;margin-top:18px}
-.cta{padding:65px 0;background:var(--orange);color:#21180e}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:38px}
+.section-head h2{font-size:clamp(35px,4.5vw,52px);margin-top:14px}
+.section-head p{font-size:12px;color:var(--gray);max-width:340px}
+.menu-section{background:#fff}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.menu-card{border:1px solid #e9e6df;background:#fff;transition:transform .25s}
+.menu-card:hover{transform:translateY(-5px)}
+.menu-card img{height:225px}
+.menu-info{padding:21px}
+.menu-info small{color:var(--gray);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.menu-info h3{font-size:25px;margin:8px 0}
+.menu-info p{font-size:12px;color:var(--gray);min-height:40px}
+.price{display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-size:13px;font-weight:600}
+.price a{font-size:10px;letter-spacing:1px;text-decoration:underline}
+.menu-bottom{text-align:center;margin-top:35px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.about-images{display:grid;grid-template-columns:1fr 1fr;gap:13px;align-items:start}
+.about-images img:first-child{height:330px;margin-top:40px}
+.about-images img:last-child{height:270px}
+.about-copy h2{font-size:clamp(38px,4.5vw,56px);margin:18px 0 23px}
+.about-copy p{color:#68675f;font-size:13px;line-height:2;margin-bottom:17px}
+.about-copy .btn{margin-top:12px}
+.gallery-section{background:var(--dark);color:white}
+.gallery-section .eyebrow,.gallery-section .section-head p{color:#c3c0b6}
+.gallery-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:220px 220px;gap:13px}
+.gallery-grid img{height:100%}
+.gallery-grid img:first-child{grid-row:span 2}
+.reviews-section{background:#ece9e2}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.review{background:var(--cream);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;min-height:220px}
+.stars{letter-spacing:3px;font-size:13px;margin-bottom:17px}
+.review blockquote{font-family:'Playfair Display',serif;font-size:20px;line-height:1.5;flex:1}
+.review small{color:var(--gray);font-size:10px;margin-top:23px}
+.review-source{font-size:11px;color:var(--gray);margin-top:18px}
+.cta{background:#fff;padding:65px 0}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
-.cta h2{font-size:clamp(2rem,4vw,3.2rem);margin:10px 0}
-.cta p{color:#594027}
-.cta .btn{background:var(--bg);color:var(--cream);border-color:var(--bg);white-space:nowrap}
-footer{padding:35px 0}
-.footer-top{display:flex;justify-content:space-between;gap:30px;align-items:center;padding-bottom:25px;border-bottom:1px solid var(--line)}
-.footer-links{display:flex;flex-wrap:wrap;gap:20px;font-size:.85rem;color:var(--muted)}
-.footer-bottom{display:flex;justify-content:space-between;gap:15px;padding-top:20px;font-size:.78rem;color:var(--muted)}
-footer p{font-size:.8rem;margin-top:12px}
-@media(max-width:800px){
- .hero{min-height:auto;grid-template-columns:1fr;padding:55px 0;gap:32px}
- .hero h1{font-size:clamp(3.2rem,12vw,5.2rem)}
- .hero-image{height:390px;margin-left:10px}
- .image-label{left:-10px}
- .menu-grid{grid-template-columns:repeat(2,1fr)}
- .about-grid{gap:35px}
- .about-images img{height:360px}
- .reviews-grid{grid-template-columns:1fr}
- .visit-grid{gap:25px}
- .nav-links{gap:15px}
+.cta h2{font-size:clamp(32px,4vw,47px);margin-top:10px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+.contact-grid h2{font-size:48px;margin:18px 0}
+.contact-grid p{font-size:13px;color:var(--gray);margin:12px 0}
+.contact-detail{padding:20px 0;border-bottom:1px solid var(--line)}
+.contact-detail b{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.map-card{background:#e8e5dd;min-height:330px;padding:35px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.map-card .pin{font-size:34px;margin-bottom:15px}
+.map-card h3{font-size:29px;margin-bottom:10px}
+footer{background:var(--black);color:white;padding:40px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}
+.footer-inner p{font-size:10px;color:#b8b6ae}
+.footer-links{display:flex;gap:20px;font-size:11px}
+@media(max-width:760px){
+ .nav{min-height:68px}.logo{font-size:23px}.mobile-toggle{display:block}
+ .navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);padding:22px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:18px}
+ .navlinks.open{display:flex}.navlinks .btn{text-align:center}
+ .hero{padding:30px 0 48px}.hero-grid{grid-template-columns:1fr;gap:32px}
+ h1{font-size:53px}.hero-image{height:390px}
+ .strip-inner{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+ section{padding:65px 0}.section-head{align-items:flex-start;flex-direction:column;margin-bottom:27px}
+ .menu-grid{grid-template-columns:1fr 1fr;gap:12px}.menu-card img{height:155px}
+ .menu-info{padding:14px}.menu-info h3{font-size:20px}.menu-info p{font-size:11px}.price{font-size:11px;align-items:flex-start;gap:5px;flex-direction:column}
+ .about-grid{grid-template-columns:1fr;gap:35px}.about-images img:first-child{height:270px}.about-images img:last-child{height:220px}
+ .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:210px 155px 155px}
+ .gallery-grid img:first-child{grid-row:span 2}
+ .review-grid{grid-template-columns:1fr}.review{min-height:180px}
+ .cta-inner{align-items:flex-start;flex-direction:column}
+ .contact-grid{grid-template-columns:1fr;gap:28px}.contact-grid h2{font-size:40px}
 }
-@media(max-width:600px){
- .container{width:90%}
- nav{min-height:68px}
- .logo{font-size:1.45rem}
- .menu-toggle{display:block}
- .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#191916;padding:22px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
- .nav-links.open{display:flex}
- .nav-links a{padding:12px 0;border-bottom:1px solid #302f29}
- .nav-links .nav-cta{text-align:center;margin-top:12px}
- .hero{padding:45px 0}
- .hero h1{letter-spacing:-2px}
- .hero-image{height:320px;margin:0}
- .image-label{bottom:15px;padding:12px 16px}
- .stats{gap:8px;padding:18px 0}
- .stat strong{font-size:1.4rem}
- .stat span{font-size:.68rem}
- section{padding:65px 0}
- .section-head{display:block}
- .section-head>p{margin-top:12px}
- .menu-grid{grid-template-columns:1fr;gap:18px}
- .food-card img{height:230px}
- .about-grid,.visit-grid{grid-template-columns:1fr}
- .about-images{padding-right:20px}
- .about-images img{height:330px}
- .features{gap:12px}
- .cta-inner{align-items:start;flex-direction:column}
- .footer-top,.footer-bottom{align-items:flex-start;flex-direction:column}
-}
+@media(max-width:390px){.menu-grid{grid-template-columns:1fr}.menu-card img{height:210px}.hero-image{height:320px}}
 </style>
 </head>
 <body>
+<div class="announcement">CAFE SIERRA · F-8/2, ISLAMABAD · GOOD FOOD, COZY VIBES</div>
 <header>
-  <nav class="container">
-    <a class="logo" href="#home">urban<span>.</span>bites</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#menu">Our Menu</a>
-      <a href="#about">Our Story</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#visit">Find Us</a>
-      <a href="#menu" class="nav-cta">Explore Menu ↗</a>
-    </div>
+ <div class="wrap nav">
+  <a class="logo" href="#home">CAFE SIERRA<span>ISLAMABAD</span></a>
+  <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  <nav class="navlinks" id="navlinks">
+   <a href="#home" onclick="closeMenu()">Home</a>
+   <a href="#menu" onclick="closeMenu()">Menu</a>
+   <a href="#about" onclick="closeMenu()">Our Story</a>
+   <a href="#gallery" onclick="closeMenu()">Gallery</a>
+   <a href="#reviews" onclick="closeMenu()">Reviews</a>
+   <a class="btn" href="#contact" onclick="closeMenu()">Visit Us</a>
   </nav>
+ </div>
 </header>
-
 <main>
-<section class="container hero" id="home">
+<section class="hero" id="home">
+ <div class="wrap hero-grid">
   <div class="hero-copy">
-    <div class="eyebrow">Made fresh. Served with love.</div>
-    <h1>Good food.<br>Great <span>mood.</span></h1>
-    <p>Big flavours, fresh ingredients and the kind of food that turns an ordinary day into something special. Welcome to your new favourite spot.</p>
-    <div class="hero-actions">
-      <a href="#menu" class="btn">Explore Our Menu ↗</a>
-      <a href="#about" class="btn btn-outline">Our Story</a>
-    </div>
-    <div class="hero-note">
-      <span class="stars">★★★★★</span>
-      <span>Made with passion, every single day</span>
-    </div>
+   <div class="eyebrow">A little escape in Islamabad</div>
+   <h1>Good food.<br><em>Beautiful moments.</em></h1>
+   <p>From satisfying steaks to comforting pasta and refreshing drinks, discover your next favourite table at Cafe Sierra.</p>
+   <div class="actions">
+    <a class="btn" href="#menu">Explore our menu ↗</a>
+    <a class="btn outline" href="#contact">Find our café</a>
+   </div>
+   <div class="hero-note"><span>✦</span><div><strong>Made for good company</strong><br>F-8/2, Madina Market, Islamabad</div></div>
   </div>
   <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=85" alt="Juicy gourmet burger with fresh toppings">
-    <div class="image-label"><small>THE CROWD FAVOURITE</small> The Signature Burger 🍔</div>
+   <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1100&q=85" alt="Beautifully presented restaurant dish">
+   <div class="image-tag">A TABLE WORTH GATHERING AROUND<strong>Welcome to Sierra</strong></div>
   </div>
+ </div>
 </section>
-
-<div class="container stats">
-  <div class="stat"><strong>100%</strong><span>Fresh ingredients</span></div>
-  <div class="stat"><strong>Made Daily</strong><span>Freshly prepared food</span></div>
-  <div class="stat"><strong>Big Flavour</strong><span>Zero boring bites</span></div>
-</div>
-
-<section class="container" id="menu">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow">Something for every craving</div>
-      <h2>Our favourites.</h2>
-    </div>
-    <p>Comfort food, done differently. Discover the dishes we'd love you to try first.</p>
-  </div>
+<div class="strip"><div class="wrap strip-inner">
+ <div class="strip-item"><b>Steaks & mains</b>Full of flavour</div>
+ <div class="strip-item"><b>Pasta & burgers</b>Comfort favourites</div>
+ <div class="strip-item"><b>Chillers & mocktails</b>Something refreshing</div>
+ <div class="strip-item"><b>F-8/2, Islamabad</b>Find us at Madina Market</div>
+</div></div>
+<section class="menu-section" id="menu">
+ <div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">A taste of Sierra</div><h2>Favourites from<br>our menu.</h2></div><p>From hearty plates to refreshing sips, there's something to make every visit special.</p></div>
   <div class="menu-grid">
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Signature double burger" loading="lazy">
-      <div class="food-info">
-        <div class="food-top"><h3>Signature Smash</h3><span class="price">Rs. 1,250</span></div>
-        <p>Juicy smashed beef, melted cheese, fresh lettuce and our signature house sauce.</p>
-        <div class="food-bottom"><span class="tag">Bestseller</span><a href="#visit">Ask about ordering ↗</a></div>
-      </div>
-    </article>
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" alt="Crispy chicken burger" loading="lazy">
-      <div class="food-info">
-        <div class="food-top"><h3>Crispy Chicken</h3><span class="price">Rs. 950</span></div>
-        <p>Golden crispy chicken, crunchy slaw and creamy sauce in a toasted bun.</p>
-        <div class="food-bottom"><span class="tag">Fan favourite</span><a href="#visit">Ask about ordering ↗</a></div>
-      </div>
-    </article>
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80" alt="Golden crispy fries" loading="lazy">
-      <div class="food-info">
-        <div class="food-top"><h3>Loaded Fries</h3><span class="price">Rs. 550</span></div>
-        <p>Crispy golden fries topped with a rich sauce and a generous sprinkle of seasoning.</p>
-        <div class="food-bottom"><span class="tag">Perfect side</span><a href="#visit">Ask about ordering ↗</a></div>
-      </div>
-    </article>
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Freshly baked pizza" loading="lazy">
-      <div class="food-info">
-        <div class="food-top"><h3>Classic Pizza</h3><span class="price">Rs. 1,450</span></div>
-        <p>A crispy crust, rich tomato sauce and gooey cheese in every delicious slice.</p>
-        <div class="food-bottom"><span class="tag">Shareable</span><a href="#visit">Ask about ordering ↗</a></div>
-      </div>
-    </article>
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Fresh pizza with toppings" loading="lazy">
-      <div class="food-info">
-        <div class="food-top"><h3>Garden Special</h3><span class="price">Rs. 1,350</span></div>
-        <p>A colourful mix of fresh vegetables, herbs, cheese and our house-made sauce.</p>
-        <div class="food-bottom"><span class="tag">Fresh pick</span><a href="#visit">Ask about ordering ↗</a></div>
-      </div>
-    </article>
-    <article class="food-card">
-      <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=800&q=80" alt="Refreshing cold drink" loading="lazy">
-      <div class="food-info">
-        <div class="food-top"><h3>Chilled Refreshers</h3><span class="price">Rs. 350</span></div>
-        <p>Cool, refreshing drinks to complete your meal and keep the good mood going.</p>
-        <div class="food-bottom"><span class="tag">Cool down</span><a href="#visit">Ask about ordering ↗</a></div>
-      </div>
-    </article>
+   <article class="menu-card"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80" alt="Grilled chicken steak"><div class="menu-info"><small>Signature favourite</small><h3>Tarragon Chicken Steak</h3><p>Seasoned chicken steak served with sides.</p><div class="price"><span>Rs. 1,425</span><a href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener">ORDER ONLINE ↗</a></div></div></article>
+   <article class="menu-card"><img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=700&q=80" alt="Creamy fettuccine pasta"><div class="menu-info"><small>Comfort classic</small><h3>Fettuccine Alfredo</h3><p>Creamy pasta for a comforting meal.</p><div class="price"><span>Rs. 975</span><a href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener">ORDER ONLINE ↗</a></div></div></article>
+   <article class="menu-card"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Juicy grilled burger"><div class="menu-info"><small>From the grill</small><h3>Mushroom Swiss Burger</h3><p>A beef burger with Swiss cheese and mushrooms.</p><div class="price"><span>Rs. 875</span><a href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener">ORDER ONLINE ↗</a></div></div></article>
+   <article class="menu-card"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=700&q=80" alt="Restaurant main course"><div class="menu-info"><small>Made to savour</small><h3>Chicken Mushroom Steak</h3><p>Grilled chicken with a savoury mushroom sauce.</p><div class="price"><span>Rs. 1,425</span><a href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener">ORDER ONLINE ↗</a></div></div></article>
+   <article class="menu-card"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765edfd7?auto=format&fit=crop&w=700&q=80" alt="Refreshing cold drink"><div class="menu-info"><small>Fresh & refreshing</small><h3>Mint Margarita</h3><p>A cool mint drink to brighten your meal.</p><div class="price"><span>Rs. 345</span><a href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener">ORDER ONLINE ↗</a></div></div></article>
+   <article class="menu-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Chocolate fudge cake"><div class="menu-info"><small>Something sweet</small><h3>Chocolate Fudge Cake</h3><p>A rich chocolate dessert to finish on a sweet note.</p><div class="price"><span>Rs. 595</span><a href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener">ORDER ONLINE ↗</a></div></div></article>
   </div>
-  <p style="font-size:.78rem;margin-top:22px">Demo menu: all prices and dishes are illustrative and should be replaced with the restaurant's actual menu.</p>
+  <div class="menu-bottom"><a class="btn" href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener">View full menu on Foodpanda ↗</a></div>
+ </div>
 </section>
-
-<section class="about" id="about">
-  <div class="container about-grid">
-    <div class="about-images">
-      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=85" alt="Welcoming restaurant dining space" loading="lazy">
-      <div class="about-badge"><strong>Good food</strong>Good people. Good times.</div>
-    </div>
-    <div class="about-copy">
-      <div class="eyebrow">More than just a meal</div>
-      <h2>Food tastes better when it's made with heart.</h2>
-      <p>At Urban Bites, we believe the best moments happen around good food. That's why every dish on our menu is inspired by bold flavours, fresh ingredients and a love for bringing people together.</p>
-      <p>Whether you're grabbing a quick bite or catching up with your favourite people, there's always room at our table.</p>
-      <div class="features">
-        <div class="feature"><strong>✦ Freshly prepared</strong><span>Made to order with care</span></div>
-        <div class="feature"><strong>✦ Bold flavours</strong><span>Every bite counts</span></div>
-        <div class="feature"><strong>✦ Made for sharing</strong><span>Bring your people</span></div>
-        <div class="feature"><strong>✦ Warm hospitality</strong><span>Come as you are</span></div>
-      </div>
-      <a href="#visit" class="btn">Come Say Hello ↗</a>
-    </div>
-  </div>
+<section id="about">
+ <div class="wrap about-grid">
+  <div class="about-images"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Welcoming restaurant interior"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Restaurant dining experience"></div>
+  <div class="about-copy"><div class="eyebrow">More than a meal</div><h2>A place to pause, connect & enjoy.</h2><p>Cafe Sierra brings together satisfying food and a welcoming atmosphere in the heart of F-8/2, Islamabad.</p><p>Whether you're meeting friends, enjoying a meal with family, or simply taking a break, we look forward to welcoming you.</p><a class="btn" href="#contact">Plan your visit ↗</a></div>
+ </div>
 </section>
-
-<section class="container" id="reviews">
-  <div class="section-head">
-    <div><div class="eyebrow">Kind words, good memories</div><h2>The love is real.</h2></div>
-    <p>Great food is even better when shared. Here's where real customer feedback could appear.</p>
+<section class="gallery-section" id="gallery">
+ <div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">A glimpse of Sierra</div><h2>Good food, good<br>company.</h2></div><p>A look at the atmosphere, flavours and moments that make a café visit memorable.</p></div>
+  <div class="gallery-grid">
+   <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Restaurant dining atmosphere">
+   <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=700&q=80" alt="Modern café interior">
+   <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" alt="Freshly prepared food">
+   <img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=700&q=80" alt="A meal to share">
+   <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=700&q=80" alt="Restaurant interior details">
   </div>
-  <div class="reviews-grid">
-    <article class="review">
-      <div class="stars">★★★★★</div>
-      <blockquote>“The perfect place for a relaxed meal. Great flavours, a welcoming vibe and plenty to try.”</blockquote>
-      <div class="reviewer"><div class="avatar">A</div><div><strong>Sample Customer</strong><span>Example review</span></div></div>
-    </article>
-    <article class="review">
-      <div class="stars">★★★★★</div>
-      <blockquote>“The burger and fries make a fantastic combination. Definitely a menu worth exploring.”</blockquote>
-      <div class="reviewer"><div class="avatar">M</div><div><strong>Sample Customer</strong><span>Example review</span></div></div>
-    </article>
-    <article class="review">
-      <div class="stars">★★★★★</div>
-      <blockquote>“A cosy place to catch up with friends over good food. I'd love to come back.”</blockquote>
-      <div class="reviewer"><div class="avatar">S</div><div><strong>Sample Customer</strong><span>Example review</span></div></div>
-    </article>
-  </div>
-  <p style="font-size:.78rem;margin-top:20px">These are illustrative testimonials, not verified customer reviews. Replace them with genuine feedback before using this site for a real business.</p>
+ </div>
 </section>
-
-<section class="visit" id="visit">
-  <div class="container visit-grid">
-    <div>
-      <div class="eyebrow">Your table is waiting</div>
-      <h2>Come hungry.<br>Leave happy.</h2>
-      <p>Planning a visit or want to ask about the menu? Get in touch with us.</p>
-      <div class="visit-details">
-        <div class="detail"><div class="detail-icon">⌖</div><div><strong>Find Us</strong><p>Your restaurant address goes here<br>Islamabad, Pakistan (demo location)</p></div></div>
-        <div class="detail"><div class="detail-icon">◷</div><div><strong>Opening Hours</strong><p>Hours shown here are placeholders. Please confirm before visiting.</p></div></div>
-        <div class="detail"><div class="detail-icon">☎</div><div><strong>Get in Touch</strong><p>Replace with the restaurant's actual phone number.</p></div></div>
-      </div>
-      <a href="#home" class="btn" style="margin-top:28px">Back to Top ↑</a>
-    </div>
-    <div class="hours">
-      <h3>When to find us</h3>
-      <div class="hours-row"><span>Monday – Thursday</span><span>12 PM – 10 PM</span></div>
-      <div class="hours-row"><span>Friday</span><span>2 PM – 11 PM</span></div>
-      <div class="hours-row"><span>Saturday</span><span>12 PM – 11 PM</span></div>
-      <div class="hours-row"><span>Sunday</span><span>12 PM – 10 PM</span></div>
-      <p class="hours-note">Sample opening hours for this demo only. Actual hours, address and contact details must be confirmed by the business owner.</p>
-    </div>
+<section class="reviews-section" id="reviews">
+ <div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">Words from customers</div><h2>Experiences that<br>stay with us.</h2></div><p>Customer feedback helps us celebrate what people love and keep improving.</p></div>
+  <div class="review-grid">
+   <article class="review"><div class="stars">★★★★★</div><blockquote>“Perfect just Love ur margarita, recommended to All margaritas lovers !!”</blockquote><small>Raja · Foodpanda · May 2026</small></article>
+   <article class="review"><div class="stars">★★★★★</div><blockquote>“yummy and delicious”</blockquote><small>Fari · Foodpanda · July 2026</small></article>
+   <article class="review"><div class="stars">★★★★★</div><blockquote>“Best fries.”</blockquote><small>Customer review · Restaurant Guru</small></article>
   </div>
+  <p class="review-source">Short excerpts from publicly available customer reviews. Individual experiences vary. <a href="https://www.foodpanda.pk/restaurant/x8nq/cafe-sierra" target="_blank" rel="noopener"><u>Read Foodpanda reviews ↗</u></a> · <a href="https://restaurantguru.com/Cafe-Sierra-Islamabad" target="_blank" rel="noopener"><u>More reviews ↗</u></a></p>
+ </div>
 </section>
-
-<div class="cta">
-  <div class="container cta-inner">
-    <div><div class="eyebrow" style="color:#5a3815">Your next favourite meal</div><h2>Good things are on the menu.</h2><p>Explore the menu and plan your next visit.</p></div>
-    <a href="#menu" class="btn">Discover the Menu ↗</a>
+<section class="cta"><div class="wrap cta-inner"><div><div class="eyebrow">Your table awaits</div><h2>Make room for a good meal.</h2></div><a class="btn" href="https://wa.me/923215096969?text=Assalam-o-alaikum%2C%20I%20would%20like%20to%20enquire%20about%20Cafe%20Sierra." target="_blank" rel="noopener">Enquire on WhatsApp ↗</a></div></section>
+<section id="contact">
+ <div class="wrap contact-grid">
+  <div><div class="eyebrow">Come find us</div><h2>Let's meet<br>at Sierra.</h2><p>Drop by for a meal, catch up with friends, or get in touch with our team.</p>
+   <div class="contact-detail"><b>Our address</b>Plot 7, Lower Ground, Madina Market, F-8/2, Islamabad</div>
+   <div class="contact-detail"><b>Call us</b><a href="tel:+923215096969">0321 5096969</a></div>
+   <div class="contact-detail"><b>Opening hours</b>Check current hours before visiting.</div>
+   <div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cafe+Sierra+Plot+7+Madina+Market+F-8%2F2+Islamabad" target="_blank" rel="noopener">Get directions ↗</a><a class="btn outline" href="https://wa.me/923215096969" target="_blank" rel="noopener">WhatsApp</a></div>
   </div>
-</div>
+  <div class="map-card"><div class="pin">⌖</div><div class="eyebrow">Located in Islamabad</div><h3>F-8/2 · Madina Market</h3><p>Find Cafe Sierra at Plot 7, Lower Ground.</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cafe+Sierra+Islamabad" target="_blank" rel="noopener">Open Google Maps ↗</a></div>
+ </div>
+</section>
 </main>
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div><a class="logo" href="#home">urban<span>.</span>bites</a><p>Good food. Great mood. Always.</p></div>
-      <div class="footer-links"><a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">Our Story</a><a href="#reviews">Reviews</a><a href="#visit">Contact</a></div>
-    </div>
-    <div class="footer-bottom"><span>© <span id="year"></span> Urban Bites — Portfolio Demo</span><span>Made with care ✦</span></div>
-  </div>
-</footer>
-
+<footer><div class="wrap footer-inner"><a class="logo" href="#home">CAFE SIERRA<span>ISLAMABAD</span></a><p>Good food. Beautiful moments. © <span id="year"></span> Cafe Sierra.</p><div class="footer-links"><a href="#menu">Menu</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div></div></footer>
 <script>
-const toggle = document.getElementById('menuToggle');
-const links = document.getElementById('navLinks');
-
-toggle.addEventListener('click', () => {
-  const isOpen = links.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(isOpen));
-  toggle.textContent = isOpen ? '✕' : '☰';
-});
-
-links.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    links.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.textContent = '☰';
-  });
-});
-
-document.getElementById('year').textContent = new Date().getFullYear();
+function toggleMenu(){const n=document.getElementById('navlinks');n.classList.toggle('open');document.querySelector('.mobile-toggle').setAttribute('aria-expanded',n.classList.contains('open'))}
+function closeMenu(){document.getElementById('navlinks').classList.remove('open');document.querySelector('.mobile-toggle').setAttribute('aria-expanded','false')}
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
